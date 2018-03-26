@@ -1,0 +1,13 @@
+#!/bin/tcsh -f
+
+# Need to have access to the Jython netlister program
+set netlister_dir = ~/Documents/Development/git/netlister
+which netlister.py > /dev/null
+if ($status != 0) then
+   setenv CLASSPATH ${netlister_dir}/src:$CLASSPATH
+   setenv PATH      ${netlister_dir}/src:$PATH
+   rehash
+endif
+
+make plcc84_dil64.net
+make plcc84_dil64.scr
