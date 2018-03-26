@@ -4,60 +4,60 @@
 Grid default;
 Set Wire_Bend 0; 
 Layer Dimension;
-Wire 0  (0 0) (3.6 3.2) (0 0);
+Wire 0  (0 0) (3.1 1.8) (0 0);
 Layer Top;
 
 # PCB-Pool/PCB-Train design rule is actually 0.006/0.006 for wires
 CLASS 0 signal 0.008 0.008 ;
-CLASS 1 supply 0.018 0.008 ;
+CLASS 1 supply 0.020 0.010 ;
 
-ROTATE =R270  L1 ;
-MOVE L1            (0.5 2.4);
-ROTATE =R270 CAP22UF ; 
-MOVE CAP22UF       (0.4 2.0) ;
+ROTATE =R0  L1 ;
+MOVE L1            (0.2 1.35);
+ROTATE =R0 CAP22UF ; 
+MOVE CAP22UF       (0.15 1.05) ;
 
 ROTATE =R0 REG_CAP0 ; 
-MOVE REG_CAP0      (0.5 1.4);
+MOVE REG_CAP0      (0.2 0.75);
 
-ROTATE =R270 REG3V3 ;
-MOVE REG3V3        (0.4 1.2);
-ROTATE =R180 REG_CAP1 ; 
-MOVE REG_CAP1      (0.5 0.9);
+ROTATE =R180 REG3V3 ;
+MOVE REG3V3        (0.25 0.6);
+ROTATE =R0 REG_CAP1 ; 
+MOVE REG_CAP1      (0.2 0.35);
 
 ROTATE =R270 CPLD ;
-MOVE CPLD          (1.9 1.60);
-ROTATE =R180 CAP100N_1 ;
-MOVE CAP100N_1     (2.8 2.6) ;
-ROTATE =R0 CAP100N_2 ;
-MOVE CAP100N_2     (0.8  2.6)  ;
-ROTATE =R0 CAP100N_3 ;
-MOVE CAP100N_3     (0.8  0.7)  ; 
-ROTATE =R180 CAP100N_4 ;
-MOVE CAP100N_4     (2.8 0.7)  ; 
+MOVE CPLD          (1.45 0.9);
+ROTATE =R270 CAP100N_1 ;
+MOVE CAP100N_1     (2.3 1.0) ;
+ROTATE =R270 CAP100N_2 ;
+MOVE CAP100N_2     (0.6 1.0)  ;
+ROTATE =R270 CAP100N_3 ;
+MOVE CAP100N_3     (0.6  0.65)  ; 
+ROTATE =R270 CAP100N_4 ;
+MOVE CAP100N_4     (2.3 0.5)  ; 
 
 ROTATE =R90 JTAG ;
-MOVE JTAG          (3.1 1.6)  ;
+MOVE JTAG          (2.9 0.95)  ;
 ROTATE =R0 LEFTPINS ;
-MOVE LEFTPINS      (1.8 0.3)
+MOVE LEFTPINS      (1.55 0.1)
 ROTATE =R0 RIGHTPINS ;
-MOVE RIGHTPINS     (1.8 2.9)
+MOVE RIGHTPINS     (1.55 1.7)
 
 
 Layer tPlace ;
 CHANGE FONT PROPORTIONAL ; 
 CHANGE SIZE 0.06
-TEXT 'XC95108 CPLD Breakout, v1.00' R90 (0.10 0.5) ;
-TEXT '(C) 2018 Revaldinho, BigEd'  R90      (0.18 0.5) ;
+TEXT 'XC95108 CPLD Breakout, v1.00' R90 (2.6 0.25) ;
+TEXT '(C) 2018 Revaldinho, BigEd'  R90      (2.7 0.35) ;
 
 # Autorouter
 AUTO ;
 
 ## Define power fills top and bottom over whole board area
 layer Top ; 
-polygon VSS 0.08 (0 0) (0 3.2) (3.6 3.2) (3.6 0) (0 0) ;
+polygon VSS 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
 
 layer Bottom ; 
-polygon VSS 0.08 (0 0) (0 3.2) (3.6 3.2) (3.6 0) (0 0) ;
+polygon VSS 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
 
 
 Ratsnest ;  ## Calculate and display polygons
