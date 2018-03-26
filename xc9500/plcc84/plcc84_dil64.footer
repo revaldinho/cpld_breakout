@@ -8,8 +8,8 @@ Wire 0  (0 0) (3.1 1.8) (0 0);
 Layer Top;
 
 # PCB-Pool/PCB-Train design rule is actually 0.006/0.006 for wires
-CLASS 0 signal 0.008 0.008 ;
-CLASS 1 supply 0.020 0.010 ;
+CLASS 0 signal 0.010 0.008 ;
+CLASS 1 supply 0.026 0.010 ;
 
 ROTATE =R0  L1 ;
 MOVE L1            (0.2 1.35);

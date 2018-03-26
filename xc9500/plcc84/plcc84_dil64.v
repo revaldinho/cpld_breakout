@@ -54,7 +54,7 @@ module cpc_ram_board ();
                 .p1(VSS),  .p2(VSS),
                 .p3(TMS),  .p4(TDI),
                 .p5(TDO),  .p6(TCK),
-                .p7(VDD),  .p8(),
+                .p7(VDD5V),  .p8(),
                 );
 
    xc95105_pl84 cpld (
