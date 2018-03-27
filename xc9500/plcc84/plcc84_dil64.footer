@@ -12,17 +12,17 @@ CLASS 0 signal 0.010 0.008 ;
 CLASS 1 supply 0.026 0.010 ;
 
 ROTATE =R0  L1 ;
-MOVE L1            (0.2 1.35);
+MOVE L1            (0.2 1.45);
 ROTATE =R0 CAP22UF ; 
-MOVE CAP22UF       (0.15 1.05) ;
+MOVE CAP22UF       (0.15 1.15) ;
 
 ROTATE =R0 REG_CAP0 ; 
-MOVE REG_CAP0      (0.2 0.75);
+MOVE REG_CAP0      (0.2 0.9);
 
 ROTATE =R180 REG3V3 ;
-MOVE REG3V3        (0.25 0.6);
+MOVE REG3V3        (0.25 0.7);
 ROTATE =R0 REG_CAP1 ; 
-MOVE REG_CAP1      (0.2 0.35);
+MOVE REG_CAP1      (0.2 0.45);
 
 ROTATE =R270 CPLD ;
 MOVE CPLD          (1.45 0.9);
@@ -36,7 +36,7 @@ ROTATE =R270 CAP100N_4 ;
 MOVE CAP100N_4     (2.3 0.5)  ; 
 
 ROTATE =R90 JTAG ;
-MOVE JTAG          (2.9 0.95)  ;
+MOVE JTAG          (2.9 1.25)  ;
 ROTATE =R0 LEFTPINS ;
 MOVE LEFTPINS      (1.55 0.1)
 ROTATE =R0 RIGHTPINS ;
@@ -45,9 +45,22 @@ MOVE RIGHTPINS     (1.55 1.7)
 
 Layer tPlace ;
 CHANGE FONT PROPORTIONAL ; 
-CHANGE SIZE 0.06
-TEXT 'XC95108 CPLD Breakout, v1.00' R90 (2.6 0.25) ;
-TEXT '(C) 2018 Revaldinho, BigEd'  R90      (2.7 0.35) ;
+CHANGE SIZE 0.05
+TEXT 'XC95108/9572 Breakout, v1.00' R90 (2.55 0.30) ;
+TEXT '(C) 2018 Revaldinho, BigEd'  R90  (2.65 0.40) ;
+
+CHANGE FONT FIXED ; 
+CHANGE SIZE 0.03 ;
+CHANGE WIDTH 0.01 ;
+WIRE  (2.8 0.35) (2.8 0.9) (3.0 0.9 ) (3.0 0.35) ( 2.8 0.35 ) ;
+#WIRE  (2.9 0.35) (2.9 0.85 ) ;
+#WIRE  (2.8 0.49) (3.0 0.49 ) ;
+#WIRE  (2.8 0.62) (3.0 0.62 ) ;
+#WIRE  (2.8 0.75) (3.0 0.75 ) ;
+TEXT 'GND  TDI  TCK  NC' R90 (2.85 0.4) ;
+TEXT 'GND  TMS  TDO  5V' R90 (2.95 0.4) ;
+
+TEXT '+5V VIO 3V3' R0 (0.05 1.30) ; 
 
 # Autorouter
 AUTO ;
