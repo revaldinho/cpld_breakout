@@ -1,0 +1,15 @@
+#!/bin/tcsh -f
+
+cp ../common/fine_routing.ctl  /tmp
+
+# Need to have access to the Jython netlister program
+set netlister_dir = ~/Documents/Development/git/netlister
+which netlister.py > /dev/null
+if ($status != 0) then
+   setenv CLASSPATH ${netlister_dir}/src:$CLASSPATH
+   setenv PATH      ${netlister_dir}/src:$PATH
+   rehash
+endif
+
+make tqfp144_dil60.net
+make tqfp144_dil60.scr
