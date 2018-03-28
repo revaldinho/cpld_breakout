@@ -14,7 +14,7 @@ plcc84_dil64.net: plcc84_dil64.v ${ALLLIBS}
 	-o plcc84_dil64.net \
 	-f net
 
-plcc84_dil64.scr: plcc84_dil64.v ${ALLLIBS} plcc84_dil64.footer plcc84_dil64.header
+plcc84_dil64.scr: plcc84_dil64.v ${ALLLIBS} plcc84_dil64.footer ../common/standard.header
 	netlister.py \
 	-i plcc84_dil64.v \
 	-l ${netlister_dir}/lib/memory.lib \
@@ -25,7 +25,7 @@ plcc84_dil64.scr: plcc84_dil64.v ${ALLLIBS} plcc84_dil64.footer plcc84_dil64.hea
 	-l ${netlister_dir}/lib/triac.lib \
 	-o plcc84_dil64.scr \
 	-f scr \
-	-d plcc84_dil64.header \
+	-d ../common/standard.header \
 	-t plcc84_dil64.footer
 
 
