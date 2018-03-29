@@ -5,7 +5,7 @@ Grid 0.05 ;
 Set Wire_Bend 0; 
 
 Layer Dimension;
-Wire 0  (0 0) (3.1 1.8) (0 0);
+Wire 0  (0 0) (3.1 1.45) (0 0);
 Layer Top;
 
 # PCB-Pool/PCB-Train design rule is actually 0.006/0.006 for wires
@@ -13,60 +13,54 @@ CLASS 0 signal 0.010 0.008 ;
 CLASS 1 supply 0.010 0.008 ;
 
 ROTATE =R0 CAP22UF ; 
-MOVE CAP22UF       (0.15 1.15) ;
+MOVE CAP22UF       (0.15 1.05) ;
 
 ROTATE =R0 REG_CAP0 ; 
-MOVE REG_CAP0      (0.2 0.9);
+MOVE REG_CAP0      (0.2 0.8);
 
 ROTATE =R180 REG3V3 ;
-MOVE REG3V3        (0.25 0.7);
+MOVE REG3V3        (0.25 0.6);
 ROTATE =R0 REG_CAP1 ; 
-MOVE REG_CAP1      (0.2 0.45);
+MOVE REG_CAP1      (0.2 0.35);
 
 ROTATE =R270 CAP100N_1 ;
-MOVE CAP100N_1     (2.3 1.0) ;
+MOVE CAP100N_1     (2.3 0.9) ;
 ROTATE =R270 CAP100N_2 ;
-MOVE CAP100N_2     (0.6 1.0)  ;
+MOVE CAP100N_2     (0.6 0.9)  ;
 ROTATE =R270 CAP100N_3 ;
-MOVE CAP100N_3     (0.6  0.65)  ; 
+MOVE CAP100N_3     (0.6  0.55)  ; 
 ROTATE =R270 CAP100N_4 ;
-MOVE CAP100N_4     (2.3 0.5)  ; 
+MOVE CAP100N_4     (2.3 0.4)  ; 
 
 ROTATE =R90 JTAG ;
-MOVE JTAG          (2.9 1.25)  ;
+MOVE JTAG          (2.85 0.95)  ;
 ROTATE =R0 LEFTPINS ;
 MOVE LEFTPINS      (1.55 0.1)
 ROTATE =R0 RIGHTPINS ;
-MOVE RIGHTPINS     (1.55 1.7)
-
-
-# Switch to metric Grid and mm to place CPLD
-Grid 0.25 mm ;
-ROTATE =R0 CPLD ;
-#MOVE CPLD          (1.5 0.9);
-MOVE CPLD          (38 24);
-
-
-
+MOVE RIGHTPINS     (1.55 1.35)
 
 Layer tPlace ;
 
-# Back to imperial for the text
 
-Grid 0.05 ;
 CHANGE FONT PROPORTIONAL ; 
-CHANGE SIZE 0.05
-TEXT 'XC95288 Breakout, v1.00' R90 (2.55 0.30) ;
-TEXT '(C) 2018 Revaldinho, BigEd'  R90  (2.65 0.40) ;
+CHANGE SIZE 0.05 ;
+TEXT 'XC95288 Breakout, v1.00' R90 (2.55 0.3) ;
+TEXT '(C) 2018 Revaldinho, BigEd'  R90  (2.65 0.3) ;
 
 CHANGE FONT FIXED ; 
 CHANGE SIZE 0.03 ;
 CHANGE WIDTH 0.01 ;
-WIRE  (2.8 0.35) (2.8 0.9) (3.0 0.9 ) (3.0 0.35) ( 2.8 0.35 ) ;
-TEXT 'GND  TDI  TCK  NC' R90 (2.85 0.4) ;
-TEXT 'GND  TMS  TDO  5V' R90 (2.95 0.4) ;
+WIRE  (2.75 0.2) (2.75 0.7) (2.95 0.7 ) (2.95 0.2) ( 2.75 0.2 ) ;
+TEXT 'GND  TDI  TCK  NC' R90 (2.8 0.25) ;
+TEXT 'GND  TMS  TDO  5V' R90 (2.9 0.25) ;
 
-TEXT '+5V VIO 3V3' R0 (0.05 1.30) ; 
+
+# Switch to metric Grid and mm to place CPLD
+Layer Top ;
+Grid 0.25 mm ;
+ROTATE =R0 CPLD ;
+#MOVE CPLD          (1.5 0.9);
+MOVE CPLD          (36 19);
 
 Window Fit;
 
@@ -75,11 +69,16 @@ AUTO Load /tmp/fine_routing
 AUTO ;
 
 ## Define power fills top and bottom over whole board area
+
+# Still in metric
 layer Top ; 
-polygon VDD3V3 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
+#Grid 0.02 mil ;
+#polygon VDD3V3 0.08 (0 0) (0 1.55) (3.1 1.55) (3.1 0) (0 0) ;
+polygon VDD3V3 0.08 (0 0) (0 39.37) (78.74 39.37) (78.74 0) (0 0) ;
 
 layer Bottom ; 
-polygon VSS 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
+#polygon VSS 0.08 (0 0) (0 1.55) (3.1 1.55) (3.1 0) (0 0) ;
+polygon VSS 0.08 (0 0) (0 39.37) (78.74 39.37) (78.74 0) (0 0) ;
 
 Ratsnest ;  ## Calculate and display polygons
 
