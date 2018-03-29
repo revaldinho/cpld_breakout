@@ -9,8 +9,8 @@ Wire 0  (0 0) (3.1 1.8) (0 0);
 Layer Top;
 
 # PCB-Pool/PCB-Train design rule is actually 0.006/0.006 for wires
-CLASS 0 signal 0.008 0.008 ;
-CLASS 1 supply 0.008 0.008 ;
+CLASS 0 signal 0.010 0.008 ;
+CLASS 1 supply 0.010 0.008 ;
 
 ROTATE =R0 CAP22UF ; 
 MOVE CAP22UF       (0.15 1.15) ;
@@ -23,8 +23,6 @@ MOVE REG3V3        (0.25 0.7);
 ROTATE =R0 REG_CAP1 ; 
 MOVE REG_CAP1      (0.2 0.45);
 
-ROTATE =R0 CPLD ;
-MOVE CPLD          (1.45 0.9);
 ROTATE =R270 CAP100N_1 ;
 MOVE CAP100N_1     (2.3 1.0) ;
 ROTATE =R270 CAP100N_2 ;
@@ -42,7 +40,20 @@ ROTATE =R0 RIGHTPINS ;
 MOVE RIGHTPINS     (1.55 1.7)
 
 
+# Switch to metric Grid and mm to place CPLD
+Grid 0.25 mm ;
+ROTATE =R0 CPLD ;
+#MOVE CPLD          (1.5 0.9);
+MOVE CPLD          (38 24);
+
+
+
+
 Layer tPlace ;
+
+# Back to imperial for the text
+
+Grid 0.05 ;
 CHANGE FONT PROPORTIONAL ; 
 CHANGE SIZE 0.05
 TEXT 'XC95288 Breakout, v1.00' R90 (2.55 0.30) ;
@@ -65,7 +76,7 @@ AUTO ;
 
 ## Define power fills top and bottom over whole board area
 layer Top ; 
-polygon VSS 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
+polygon VDD3V3 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;
 
 layer Bottom ; 
 polygon VSS 0.08 (0 0) (0 1.8) (3.1 1.8) (3.1 0) (0 0) ;

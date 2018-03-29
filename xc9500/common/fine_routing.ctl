@@ -1,8 +1,8 @@
-; EAGLE Autorouter Control File
+; EAGLE Autorouter Control File with fine metric spacing for QFP routing
 
 [Default]
 
-  RoutingGrid     = 1mil
+  RoutingGrid     = 0.25mm
 
   ; Trace Parameters:
 
